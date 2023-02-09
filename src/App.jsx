@@ -4,15 +4,26 @@ import  {CreatePost} from './pages/CreatePost'
 import {Login} from './pages/Login'
 import './App.css'
 import { useState } from 'react'
+import {signOut} from 'firebase/auth'
+import {auth} from './firebase-config'
 
 function App() {
+
   const[isAuth,setIsAuth]=useState(false);
+
+  const signUserOut =()=>{
+    signOut(auth)
+    localStorage.clear()
+    setIsAuth(false)
+    window.location.pathname ="/login"
+  };
+
   return (
     <Router>
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/createpost'>post</Link>
-        <Link to='/login'>login</Link>
+        {!isAuth ? <Link to='/login'>login</Link> : <button onClick={signUserOut}>Log OUt</button>}
       </nav>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
