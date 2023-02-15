@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getDocs , collection, deleteDoc, doc} from 'firebase/firestore';
 import {db, auth} from '../firebase-config'
+import { MainContainer,InnerContainer,Title,Body,Author,DeletePost } from '../components/styles/Home.styled';
 
 export const Home = ({isAuth}) => {
   const [postLists, setPostList] =useState([]);
@@ -20,34 +21,30 @@ export const Home = ({isAuth}) => {
     getPosts();
   }, [deletePost]);
 
-
-
   return (
-    <div className="homePage">
+    <MainContainer>
       {postLists.map((post) =>{
       return (
-        <div className="post">
-          <div className="postHeader">
-            <div className="title">
-              <h1>{post.title}</h1>
-            </div>
-            <div className="deletePost">
+        <InnerContainer>
+          <div>
+            <Title>
+              {post.title}
+            </Title>
+
             {isAuth && post.author.id === auth.currentUser.uid && (
-                  <button
-                    onClick={() => {
-                      deletePost(post.id);
-                    }}
-                  >
-                    X
-                  </button>
-                )}
-            </div>
+              <DeletePost
+                onClick={() => {
+                deletePost(post.id);
+                }}>
+                X
+                </DeletePost>
+            )}
+            <Body >{post.postText}</Body>
+            <Author>@{post.author.name}</Author>
           </div>
-          <div className="postTextContainer">{post.postText}</div>
-          <h3>@{post.author.name}</h3>
-        </div>
+        </InnerContainer>
       )
     })}
-    </div>
+    </MainContainer>
   )
 };
