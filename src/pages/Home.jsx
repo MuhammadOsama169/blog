@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getDocs , collection, deleteDoc, doc} from 'firebase/firestore';
 import {db, auth} from '../firebase-config'
-import { MainContainer,InnerContainer,Title,Body,Author,DeletePost } from '../components/styles/Home.styled';
+import { MainContainer,InnerContainer,Title,Body,Author,DeletePost ,ImageContainer} from '../components/styles/Home.styled';
 
 export const Home = ({isAuth}) => {
   const [postLists, setPostList] =useState([]);
@@ -23,6 +23,7 @@ export const Home = ({isAuth}) => {
 
   return (
     <MainContainer>
+    <ImageContainer/>
       {postLists.map((post) =>{
       return (
         <InnerContainer>
