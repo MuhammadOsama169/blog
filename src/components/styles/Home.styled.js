@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import ImgCover from '../../assets/cover.jpg';
 
 export const MainContainer = styled.section`
   width: 100%;
-
+  display: flex;
+  flex-direction: column;
+  height: auto;
   @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
@@ -12,7 +15,8 @@ export const MainContainer = styled.section`
 
 export const InnerContainer = styled.div`
   margin: auto;
-  max-width: 1088px;
+  width: 100%;
+  max-width: 500px;
   flex-direction: row;
   display: flex;
   justify-content: center;
@@ -30,6 +34,7 @@ export const InnerContainer = styled.div`
     padding-right: 0px;
   }
 `;
+
 export const Title = styled.h2`
   font-size: 32px;
   font-weight: bold;
@@ -56,4 +61,28 @@ export const DeletePost = styled.button`
   padding: 5px 10px;
   float: right;
   cursor: pointer;
+`;
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url(${ImgCover});
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 370px;
+
+  @media screen and (max-width: 900px) {
+    height: 250px;
+    background-size: fill;
+  }
+  @media screen and (max-width: 700px) {
+    height: 300px;
+    background-size: fill;
+  }
+  @media screen and (max-width: 500px) {
+    height: 200px;
+    background-size: fill;
+  }
 `;
