@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 export const NavbarWrapper = styled.nav`
   width: 100%;
@@ -23,7 +22,7 @@ export const ExtendedWrapper = styled.nav`
     display: none;
   }
 `;
-export const NavLink = styled(motion.a)`
+export const NavLink = styled(Link)`
   font-style: normal;
   font-size: 24px;
   color: white;

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {addDoc , collection} from 'firebase/firestore';
 import { db ,auth} from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
+import { MainContainer,InnerContainer,Title,Input,Button,PostContainer,Container,StyledTextarea } from '../components/styles/CreatePost.styled';
 
 export const CreatePost = ({isAuth}) => {
   let navigate = useNavigate();
@@ -29,22 +30,24 @@ export const CreatePost = ({isAuth}) => {
   }, [])
 
   return (
-    <div className="createPostPage">
-      <div className="cpContainer">
-        <h1>Create A Post</h1>
-        <input 
-        placeholder="Title..." 
-        onChange={(event) =>{setTitle(event.target.value)}}
-        />
-      </div>
-      <div className="inputGp">
-        <label>Post:</label>
-        <textarea 
-        placeholder="Post..." 
-        onChange={(event) =>{setPostText(event.target.value)}}
-        />
-      </div>
-      <button onClick={createPost}>Submit Post</button>
-    </div>
+    <MainContainer>
+      <InnerContainer>
+        <Container>
+          <Title>Create A Post</Title>
+          <Input 
+          placeholder="Title Goes Here..." 
+          onChange={(event) =>{setTitle(event.target.value)}}
+          />
+        </Container>
+
+        <PostContainer>
+          <StyledTextarea 
+          placeholder="Write Something Here..." 
+          onChange={(event) =>{setPostText(event.target.value)}}
+          />
+        </PostContainer>
+        <Button onClick={createPost}>Submit Post</Button>
+      </InnerContainer>
+    </MainContainer>
   );
 };

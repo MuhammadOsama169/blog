@@ -16,13 +16,14 @@ export const MainContainer = styled.section`
 export const InnerContainer = styled.div`
   margin: auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   flex-direction: row;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
   border-radius: 10px;
+  margin-top: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   @media screen and (max-width: 900px) {
