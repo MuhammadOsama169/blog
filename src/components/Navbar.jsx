@@ -20,10 +20,10 @@ function Sidebar() {
     <NavbarWrapper extendNavbar={extendNavbar} >
       <InnerContainer>
         <NavbarLinkContainer>
-          <NavLink to='/'whileHover={{ scale: 1.1 }}whileTap={{ scale: 0.9 }}>
+          <NavLink to='/' >
             Home
           </NavLink>
-          <NavLink to='/createpost'whileHover={{ scale: 1.1 }}whileTap={{ scale: 0.9 }}>
+          <NavLink to='/createpost' >
             Create Post
           </NavLink>
           {/* DIsplay Logout btn when signed in */}
@@ -32,7 +32,7 @@ function Sidebar() {
             <NavLink onClick={signUserOut}>Log Out </NavLink>
             : 
             <>
-            <NavLink to='/login'whileHover={{ scale: 1.1 }}whileTap={{ scale: 0.9 }}>
+            <NavLink to='/login' >
               Log In
             </NavLink> 
           </> 
@@ -56,8 +56,8 @@ function Sidebar() {
               {/* DIsplay Logout btn when signed in */}
               {!isAuth ? 
                 <>
-                  <NavbarLinkExtended to='/login'whileHover={{ scale: 1.1 }}whileTap={{ scale: 0.9 }}>
-                    Login
+                  <NavbarLinkExtended to='/login' >
+                    Log In
                   </NavbarLinkExtended> 
                 </> 
                 : <NavbarLinkExtended onClick={signUserOut}>Log Out </NavbarLinkExtended>
